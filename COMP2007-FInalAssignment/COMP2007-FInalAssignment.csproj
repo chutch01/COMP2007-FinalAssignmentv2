@@ -1,0 +1,736 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9890299F-7F6F-4ECF-B7D7-DF22F3E3DD0F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>COMP2007_FInalAssignment</RootNamespace>
+    <AssemblyName>COMP2007-FInalAssignment</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Character_Table\Default.aspx" />
+    <Content Include="Character_Table\Delete.aspx" />
+    <Content Include="Character_Table\Details.aspx" />
+    <Content Include="Character_Table\Edit.aspx" />
+    <Content Include="Character_Table\Insert.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\OverrideStyles.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="DynamicData\FieldTemplates\Boolean.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Boolean_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Children.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Children_Insert.ascx" />
+    <Content Include="DynamicData\FieldTemplates\DateTime.ascx" />
+    <Content Include="DynamicData\FieldTemplates\DateTime_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Decimal_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\EmailAddress.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Enumeration.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\ForeignKey.ascx" />
+    <Content Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Integer_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Text.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Text_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Url.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Url_Edit.ascx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="MasterPages\Frontend.Master" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\shadowrealmsonlinelog.pubxml" />
+    <Content Include="Player_Information\Default.aspx" />
+    <Content Include="Player_Information\Delete.aspx" />
+    <Content Include="Player_Information\Details.aspx" />
+    <Content Include="Player_Information\Edit.aspx" />
+    <Content Include="Player_Information\Insert.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Site.Mobile.Master" />
+    <EntityDeploy Include="ShadowRealmsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShadowRealmsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ShadowRealmsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShadowRealmsModel.edmx</DependentUpon>
+      <LastGenOutput>ShadowRealmsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ShadowRealmsModel.edmx.diagram">
+      <DependentUpon>ShadowRealmsModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="ShadowRealmsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShadowRealmsModel.edmx</DependentUpon>
+      <LastGenOutput>ShadowRealmsModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="SkillChart_Faith_Table\Default.aspx" />
+    <Content Include="SkillChart_Faith_Table\Delete.aspx" />
+    <Content Include="SkillChart_Faith_Table\Details.aspx" />
+    <Content Include="SkillChart_Faith_Table\Edit.aspx" />
+    <Content Include="SkillChart_Faith_Table\Insert.aspx" />
+    <Content Include="SkillChart_General_Table\Default.aspx" />
+    <Content Include="SkillChart_General_Table\Delete.aspx" />
+    <Content Include="SkillChart_General_Table\Details.aspx" />
+    <Content Include="SkillChart_General_Table\Edit.aspx" />
+    <Content Include="SkillChart_General_Table\Insert.aspx" />
+    <Content Include="SkillChart_Magic_Table\Default.aspx" />
+    <Content Include="SkillChart_Magic_Table\Delete.aspx" />
+    <Content Include="SkillChart_Magic_Table\Details.aspx" />
+    <Content Include="SkillChart_Magic_Table\Edit.aspx" />
+    <Content Include="SkillChart_Magic_Table\Insert.aspx" />
+    <Content Include="SkillChart_PrestiegeClass_Race_Table\Default.aspx" />
+    <Content Include="SkillChart_PrestiegeClass_Race_Table\Delete.aspx" />
+    <Content Include="SkillChart_PrestiegeClass_Race_Table\Details.aspx" />
+    <Content Include="SkillChart_PrestiegeClass_Race_Table\Edit.aspx" />
+    <Content Include="SkillChart_PrestiegeClass_Race_Table\Insert.aspx" />
+    <Content Include="SkillChart_Stealth_Table\Default.aspx" />
+    <Content Include="SkillChart_Stealth_Table\Delete.aspx" />
+    <Content Include="SkillChart_Stealth_Table\Details.aspx" />
+    <Content Include="SkillChart_Stealth_Table\Edit.aspx" />
+    <Content Include="SkillChart_Stealth_Table\Insert.aspx" />
+    <Content Include="SkillChart_Weapons_Table\Default.aspx" />
+    <Content Include="SkillChart_Weapons_Table\Delete.aspx" />
+    <Content Include="SkillChart_Weapons_Table\Details.aspx" />
+    <Content Include="SkillChart_Weapons_Table\Edit.aspx" />
+    <Content Include="SkillChart_Weapons_Table\Insert.aspx" />
+    <Content Include="UserPages\PrelogPage.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Character_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Character_Table\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Character_Table\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Character_Table\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Character_Table\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Character_Table\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Character_Table\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Character_Table\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Character_Table\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Character_Table\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Character_Table\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean.ascx.cs">
+      <DependentUpon>Boolean.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean.ascx.designer.cs">
+      <DependentUpon>Boolean.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean_Edit.ascx.cs">
+      <DependentUpon>Boolean_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean_Edit.ascx.designer.cs">
+      <DependentUpon>Boolean_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children.ascx.cs">
+      <DependentUpon>Children.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children.ascx.designer.cs">
+      <DependentUpon>Children.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children_Insert.ascx.cs">
+      <DependentUpon>Children_Insert.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children_Insert.ascx.designer.cs">
+      <DependentUpon>Children_Insert.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime.ascx.cs">
+      <DependentUpon>DateTime.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime.ascx.designer.cs">
+      <DependentUpon>DateTime.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime_Edit.ascx.cs">
+      <DependentUpon>DateTime_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime_Edit.ascx.designer.cs">
+      <DependentUpon>DateTime_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Decimal_Edit.ascx.cs">
+      <DependentUpon>Decimal_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Decimal_Edit.ascx.designer.cs">
+      <DependentUpon>Decimal_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\EmailAddress.ascx.cs">
+      <DependentUpon>EmailAddress.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\EmailAddress.ascx.designer.cs">
+      <DependentUpon>EmailAddress.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration.ascx.cs">
+      <DependentUpon>Enumeration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration.ascx.designer.cs">
+      <DependentUpon>Enumeration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx.cs">
+      <DependentUpon>Enumeration_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx.designer.cs">
+      <DependentUpon>Enumeration_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey.ascx.cs">
+      <DependentUpon>ForeignKey.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey.ascx.designer.cs">
+      <DependentUpon>ForeignKey.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx.cs">
+      <DependentUpon>ForeignKey_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx.designer.cs">
+      <DependentUpon>ForeignKey_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Integer_Edit.ascx.cs">
+      <DependentUpon>Integer_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Integer_Edit.ascx.designer.cs">
+      <DependentUpon>Integer_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx.cs">
+      <DependentUpon>MultilineText_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx.designer.cs">
+      <DependentUpon>MultilineText_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text.ascx.cs">
+      <DependentUpon>Text.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text.ascx.designer.cs">
+      <DependentUpon>Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text_Edit.ascx.cs">
+      <DependentUpon>Text_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text_Edit.ascx.designer.cs">
+      <DependentUpon>Text_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url.ascx.cs">
+      <DependentUpon>Url.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url.ascx.designer.cs">
+      <DependentUpon>Url.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url_Edit.ascx.cs">
+      <DependentUpon>Url_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url_Edit.ascx.designer.cs">
+      <DependentUpon>Url_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Frontend.Master.cs">
+      <DependentUpon>Frontend.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Frontend.Master.designer.cs">
+      <DependentUpon>Frontend.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Player_Information.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Player_Information\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Player_Information\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Player_Information\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Player_Information\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Player_Information\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Player_Information\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Player_Information\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Player_Information\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Player_Information\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Player_Information\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PresteigeClass_RaceList_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShadowRealmsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShadowRealmsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShadowRealmsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShadowRealmsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShadowRealmsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Faith_Table\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_General_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_General_Table\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Magic_Table\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_PrestiegeClass_Race_Table\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Stealth_Table\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Insert.aspx.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkillChart_Weapons_Table\Insert.aspx.designer.cs">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsPurchased_Faith_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsPurchased_General_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsPurchased_Magic_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsPurchased_Stealth_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillsPurchased_Weapon_Table.cs">
+      <DependentUpon>ShadowRealmsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserPages\PrelogPage.aspx.cs">
+      <DependentUpon>PrelogPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPages\PrelogPage.aspx.designer.cs">
+      <DependentUpon>PrelogPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49411</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1025/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

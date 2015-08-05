@@ -1,0 +1,986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Character_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharacterName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Race" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SPtotal" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Deaths" Type="int" Nullable="false" />
+          <Property Name="WeaponDots" Type="int" Nullable="false" />
+          <Property Name="StealthDots" Type="int" Nullable="false" />
+          <Property Name="MagicDots" Type="int" Nullable="false" />
+          <Property Name="FaithDots" Type="int" Nullable="false" />
+          <Property Name="GeneralDots" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Characters_Owned">
+          <Key>
+            <PropertyRef Name="PlayerIdNum" />
+          </Key>
+          <Property Name="PlayerIdNum" Type="int" Nullable="false" />
+          <Property Name="CharacterIdNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClassRace_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="int" Nullable="false" />
+          <Property Name="IdList" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player_Information">
+          <Key>
+            <PropertyRef Name="PlayerIdNum" />
+          </Key>
+          <Property Name="PlayerIdNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="Contact" Type="int" Nullable="false" />
+          <Property Name="EmergencyContact" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="FloatingXP" Type="int" Nullable="false" />
+          <Property Name="GrabBags" Type="int" Nullable="false" />
+          <Property Name="Waver" Type="bit" Nullable="false" />
+          <Property Name="CanPlay" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PresteigeClass_RaceList_Table">
+          <Key>
+            <PropertyRef Name="IdList" />
+          </Key>
+          <Property Name="IdList" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillChart_Faith_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SkillCost" Type="int" Nullable="false" />
+          <Property Name="MultiPurchase" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillChart_General_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SkillCost" Type="int" Nullable="false" />
+          <Property Name="MultiPurchase" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillChart_Magic_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SkillCost" Type="int" Nullable="false" />
+          <Property Name="MultiPurchase" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillChart_PrestiegeClass_Race_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SkillCost" Type="int" Nullable="false" />
+          <Property Name="MultiPurchase" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillChart_Stealth_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SkillCost" Type="int" Nullable="false" />
+          <Property Name="MultiPurchase" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillChart_Weapons_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SkillCost" Type="int" Nullable="false" />
+          <Property Name="MultiPurchase" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_Faith_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="int" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+          <Property Name="totalSpentSP" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_General_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="int" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+          <Property Name="TotalSpentSP" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_Magic_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="int" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+          <Property Name="TotalSPentSP" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_Stealth_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="int" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+          <Property Name="TotalSpentSP" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_Weapon_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="int" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+          <Property Name="totalSpentSP" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Characters_Owned_ToTable">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="Characters_Owned" Type="Self.Characters_Owned" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="Characters_Owned">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Characters_Owned_ToTable_1">
+          <End Role="Player_Information" Type="Self.Player_Information" Multiplicity="1" />
+          <End Role="Characters_Owned" Type="Self.Characters_Owned" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Player_Information">
+              <PropertyRef Name="PlayerIdNum" />
+            </Principal>
+            <Dependent Role="Characters_Owned">
+              <PropertyRef Name="PlayerIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClassRace_Table_ToTable">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="ClassRace_Table" Type="Self.ClassRace_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="ClassRace_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClassRace_Table_ToTable_1">
+          <End Role="PresteigeClass_RaceList_Table" Type="Self.PresteigeClass_RaceList_Table" Multiplicity="1" />
+          <End Role="ClassRace_Table" Type="Self.ClassRace_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresteigeClass_RaceList_Table">
+              <PropertyRef Name="IdList" />
+            </Principal>
+            <Dependent Role="ClassRace_Table">
+              <PropertyRef Name="IdList" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresteigeClass_RaceList_Table_ToTable">
+          <End Role="SkillChart_PrestiegeClass_Race_Table" Type="Self.SkillChart_PrestiegeClass_Race_Table" Multiplicity="1" />
+          <End Role="PresteigeClass_RaceList_Table" Type="Self.PresteigeClass_RaceList_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_PrestiegeClass_Race_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="PresteigeClass_RaceList_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Faith_Table_ToTable">
+          <End Role="SkillChart_Faith_Table" Type="Self.SkillChart_Faith_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Faith_Table" Type="Self.SkillsPurchased_Faith_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_Faith_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Faith_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Faith_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Faith_Table" Type="Self.SkillsPurchased_Faith_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Faith_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_General_Table_ToTable">
+          <End Role="SkillChart_General_Table" Type="Self.SkillChart_General_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_General_Table" Type="Self.SkillsPurchased_General_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_General_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_General_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_General_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_General_Table" Type="Self.SkillsPurchased_General_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_General_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Magic_Table_ToTable">
+          <End Role="SkillChart_Magic_Table" Type="Self.SkillChart_Magic_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Magic_Table" Type="Self.SkillsPurchased_Magic_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_Magic_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Magic_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Magic_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Magic_Table" Type="Self.SkillsPurchased_Magic_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Magic_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Stealth_Table_ToTable">
+          <End Role="SkillChart_Stealth_Table" Type="Self.SkillChart_Stealth_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Stealth_Table" Type="Self.SkillsPurchased_Stealth_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_Stealth_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Stealth_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Stealth_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Stealth_Table" Type="Self.SkillsPurchased_Stealth_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Stealth_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Weapon_Table_ToTable">
+          <End Role="SkillChart_Weapons_Table" Type="Self.SkillChart_Weapons_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Weapon_Table" Type="Self.SkillsPurchased_Weapon_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_Weapons_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Weapon_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Weapon_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Weapon_Table" Type="Self.SkillsPurchased_Weapon_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Weapon_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SRModelStoreContainer">
+          <EntitySet Name="Character_Table" EntityType="Self.Character_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Characters_Owned" EntityType="Self.Characters_Owned" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassRace_Table" EntityType="Self.ClassRace_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player_Information" EntityType="Self.Player_Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PresteigeClass_RaceList_Table" EntityType="Self.PresteigeClass_RaceList_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillChart_Faith_Table" EntityType="Self.SkillChart_Faith_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillChart_General_Table" EntityType="Self.SkillChart_General_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillChart_Magic_Table" EntityType="Self.SkillChart_Magic_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillChart_PrestiegeClass_Race_Table" EntityType="Self.SkillChart_PrestiegeClass_Race_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillChart_Stealth_Table" EntityType="Self.SkillChart_Stealth_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillChart_Weapons_Table" EntityType="Self.SkillChart_Weapons_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillsPurchased_Faith_Table" EntityType="Self.SkillsPurchased_Faith_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillsPurchased_General_Table" EntityType="Self.SkillsPurchased_General_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillsPurchased_Magic_Table" EntityType="Self.SkillsPurchased_Magic_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillsPurchased_Stealth_Table" EntityType="Self.SkillsPurchased_Stealth_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillsPurchased_Weapon_Table" EntityType="Self.SkillsPurchased_Weapon_Table" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Characters_Owned_ToTable" Association="Self.FK_Characters_Owned_ToTable">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="Characters_Owned" EntitySet="Characters_Owned" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Characters_Owned_ToTable_1" Association="Self.FK_Characters_Owned_ToTable_1">
+            <End Role="Player_Information" EntitySet="Player_Information" />
+            <End Role="Characters_Owned" EntitySet="Characters_Owned" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClassRace_Table_ToTable" Association="Self.FK_ClassRace_Table_ToTable">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="ClassRace_Table" EntitySet="ClassRace_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClassRace_Table_ToTable_1" Association="Self.FK_ClassRace_Table_ToTable_1">
+            <End Role="PresteigeClass_RaceList_Table" EntitySet="PresteigeClass_RaceList_Table" />
+            <End Role="ClassRace_Table" EntitySet="ClassRace_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresteigeClass_RaceList_Table_ToTable" Association="Self.FK_PresteigeClass_RaceList_Table_ToTable">
+            <End Role="SkillChart_PrestiegeClass_Race_Table" EntitySet="SkillChart_PrestiegeClass_Race_Table" />
+            <End Role="PresteigeClass_RaceList_Table" EntitySet="PresteigeClass_RaceList_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Faith_Table_ToTable" Association="Self.FK_SkillsPurchased_Faith_Table_ToTable">
+            <End Role="SkillChart_Faith_Table" EntitySet="SkillChart_Faith_Table" />
+            <End Role="SkillsPurchased_Faith_Table" EntitySet="SkillsPurchased_Faith_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Faith_Table_ToTable_1" Association="Self.FK_SkillsPurchased_Faith_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_Faith_Table" EntitySet="SkillsPurchased_Faith_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_General_Table_ToTable" Association="Self.FK_SkillsPurchased_General_Table_ToTable">
+            <End Role="SkillChart_General_Table" EntitySet="SkillChart_General_Table" />
+            <End Role="SkillsPurchased_General_Table" EntitySet="SkillsPurchased_General_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_General_Table_ToTable_1" Association="Self.FK_SkillsPurchased_General_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_General_Table" EntitySet="SkillsPurchased_General_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Magic_Table_ToTable" Association="Self.FK_SkillsPurchased_Magic_Table_ToTable">
+            <End Role="SkillChart_Magic_Table" EntitySet="SkillChart_Magic_Table" />
+            <End Role="SkillsPurchased_Magic_Table" EntitySet="SkillsPurchased_Magic_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Magic_Table_ToTable_1" Association="Self.FK_SkillsPurchased_Magic_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_Magic_Table" EntitySet="SkillsPurchased_Magic_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Stealth_Table_ToTable" Association="Self.FK_SkillsPurchased_Stealth_Table_ToTable">
+            <End Role="SkillChart_Stealth_Table" EntitySet="SkillChart_Stealth_Table" />
+            <End Role="SkillsPurchased_Stealth_Table" EntitySet="SkillsPurchased_Stealth_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Stealth_Table_ToTable_1" Association="Self.FK_SkillsPurchased_Stealth_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_Stealth_Table" EntitySet="SkillsPurchased_Stealth_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Weapon_Table_ToTable" Association="Self.FK_SkillsPurchased_Weapon_Table_ToTable">
+            <End Role="SkillChart_Weapons_Table" EntitySet="SkillChart_Weapons_Table" />
+            <End Role="SkillsPurchased_Weapon_Table" EntitySet="SkillsPurchased_Weapon_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Weapon_Table_ToTable_1" Association="Self.FK_SkillsPurchased_Weapon_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_Weapon_Table" EntitySet="SkillsPurchased_Weapon_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Character_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharacterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Race" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SPtotal" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Deaths" Type="Int32" Nullable="false" />
+          <Property Name="WeaponDots" Type="Int32" Nullable="false" />
+          <Property Name="StealthDots" Type="Int32" Nullable="false" />
+          <Property Name="MagicDots" Type="Int32" Nullable="false" />
+          <Property Name="FaithDots" Type="Int32" Nullable="false" />
+          <Property Name="GeneralDots" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SkillsPurchased_Faith_Table" Relationship="Self.FK_SkillsPurchased_Faith_Table_ToTable_1" FromRole="Character_Table" ToRole="SkillsPurchased_Faith_Table" />
+          <NavigationProperty Name="SkillsPurchased_General_Table" Relationship="Self.FK_SkillsPurchased_General_Table_ToTable_1" FromRole="Character_Table" ToRole="SkillsPurchased_General_Table" />
+          <NavigationProperty Name="SkillsPurchased_Magic_Table" Relationship="Self.FK_SkillsPurchased_Magic_Table_ToTable_1" FromRole="Character_Table" ToRole="SkillsPurchased_Magic_Table" />
+          <NavigationProperty Name="SkillsPurchased_Stealth_Table" Relationship="Self.FK_SkillsPurchased_Stealth_Table_ToTable_1" FromRole="Character_Table" ToRole="SkillsPurchased_Stealth_Table" />
+          <NavigationProperty Name="SkillsPurchased_Weapon_Table" Relationship="Self.FK_SkillsPurchased_Weapon_Table_ToTable_1" FromRole="Character_Table" ToRole="SkillsPurchased_Weapon_Table" />
+          <NavigationProperty Name="Player_Information" Relationship="Self.Characters_Owned" FromRole="Character_Table" ToRole="Player_Information" />
+          <NavigationProperty Name="PresteigeClass_RaceList_Table" Relationship="Self.ClassRace_Table" FromRole="Character_Table" ToRole="PresteigeClass_RaceList_Table" />
+        </EntityType>
+        <EntityType Name="Player_Information">
+          <Key>
+            <PropertyRef Name="PlayerIdNum" />
+          </Key>
+          <Property Name="PlayerIdNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contact" Type="Int32" Nullable="false" />
+          <Property Name="EmergencyContact" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FloatingXP" Type="Int32" Nullable="false" />
+          <Property Name="GrabBags" Type="Int32" Nullable="false" />
+          <Property Name="Waver" Type="Boolean" Nullable="false" />
+          <Property Name="CanPlay" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Character_Table" Relationship="Self.Characters_Owned" FromRole="Player_Information" ToRole="Character_Table" />
+        </EntityType>
+        <EntityType Name="PresteigeClass_RaceList_Table">
+          <Key>
+            <PropertyRef Name="IdList" />
+          </Key>
+          <Property Name="IdList" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SkillChart_PrestiegeClass_Race_Table" Relationship="Self.FK_PresteigeClass_RaceList_Table_ToTable" FromRole="PresteigeClass_RaceList_Table" ToRole="SkillChart_PrestiegeClass_Race_Table" />
+          <NavigationProperty Name="Character_Table" Relationship="Self.ClassRace_Table" FromRole="PresteigeClass_RaceList_Table" ToRole="Character_Table" />
+        </EntityType>
+        <EntityType Name="SkillChart_Faith_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkillCost" Type="Int32" Nullable="false" />
+          <Property Name="MultiPurchase" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SkillsPurchased_Faith_Table" Relationship="Self.FK_SkillsPurchased_Faith_Table_ToTable" FromRole="SkillChart_Faith_Table" ToRole="SkillsPurchased_Faith_Table" />
+        </EntityType>
+        <EntityType Name="SkillChart_General_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkillCost" Type="Int32" Nullable="false" />
+          <Property Name="MultiPurchase" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SkillsPurchased_General_Table" Relationship="Self.FK_SkillsPurchased_General_Table_ToTable" FromRole="SkillChart_General_Table" ToRole="SkillsPurchased_General_Table" />
+        </EntityType>
+        <EntityType Name="SkillChart_Magic_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkillCost" Type="Int32" Nullable="false" />
+          <Property Name="MultiPurchase" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SkillsPurchased_Magic_Table" Relationship="Self.FK_SkillsPurchased_Magic_Table_ToTable" FromRole="SkillChart_Magic_Table" ToRole="SkillsPurchased_Magic_Table" />
+        </EntityType>
+        <EntityType Name="SkillChart_PrestiegeClass_Race_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkillCost" Type="Int32" Nullable="false" />
+          <Property Name="MultiPurchase" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PresteigeClass_RaceList_Table" Relationship="Self.FK_PresteigeClass_RaceList_Table_ToTable" FromRole="SkillChart_PrestiegeClass_Race_Table" ToRole="PresteigeClass_RaceList_Table" />
+        </EntityType>
+        <EntityType Name="SkillChart_Stealth_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkillCost" Type="Int32" Nullable="false" />
+          <Property Name="MultiPurchase" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SkillsPurchased_Stealth_Table" Relationship="Self.FK_SkillsPurchased_Stealth_Table_ToTable" FromRole="SkillChart_Stealth_Table" ToRole="SkillsPurchased_Stealth_Table" />
+        </EntityType>
+        <EntityType Name="SkillChart_Weapons_Table">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkillCost" Type="Int32" Nullable="false" />
+          <Property Name="MultiPurchase" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SkillsPurchased_Weapon_Table" Relationship="Self.FK_SkillsPurchased_Weapon_Table_ToTable" FromRole="SkillChart_Weapons_Table" ToRole="SkillsPurchased_Weapon_Table" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_Faith_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="Int32" Nullable="false" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <Property Name="totalSpentSP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Character_Table" Relationship="Self.FK_SkillsPurchased_Faith_Table_ToTable_1" FromRole="SkillsPurchased_Faith_Table" ToRole="Character_Table" />
+          <NavigationProperty Name="SkillChart_Faith_Table" Relationship="Self.FK_SkillsPurchased_Faith_Table_ToTable" FromRole="SkillsPurchased_Faith_Table" ToRole="SkillChart_Faith_Table" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_General_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="Int32" Nullable="false" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <Property Name="TotalSpentSP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Character_Table" Relationship="Self.FK_SkillsPurchased_General_Table_ToTable_1" FromRole="SkillsPurchased_General_Table" ToRole="Character_Table" />
+          <NavigationProperty Name="SkillChart_General_Table" Relationship="Self.FK_SkillsPurchased_General_Table_ToTable" FromRole="SkillsPurchased_General_Table" ToRole="SkillChart_General_Table" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_Magic_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="Int32" Nullable="false" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <Property Name="TotalSPentSP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Character_Table" Relationship="Self.FK_SkillsPurchased_Magic_Table_ToTable_1" FromRole="SkillsPurchased_Magic_Table" ToRole="Character_Table" />
+          <NavigationProperty Name="SkillChart_Magic_Table" Relationship="Self.FK_SkillsPurchased_Magic_Table_ToTable" FromRole="SkillsPurchased_Magic_Table" ToRole="SkillChart_Magic_Table" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_Stealth_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="Int32" Nullable="false" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <Property Name="TotalSpentSP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Character_Table" Relationship="Self.FK_SkillsPurchased_Stealth_Table_ToTable_1" FromRole="SkillsPurchased_Stealth_Table" ToRole="Character_Table" />
+          <NavigationProperty Name="SkillChart_Stealth_Table" Relationship="Self.FK_SkillsPurchased_Stealth_Table_ToTable" FromRole="SkillsPurchased_Stealth_Table" ToRole="SkillChart_Stealth_Table" />
+        </EntityType>
+        <EntityType Name="SkillsPurchased_Weapon_Table">
+          <Key>
+            <PropertyRef Name="CharacterIdNum" />
+          </Key>
+          <Property Name="CharacterIdNum" Type="Int32" Nullable="false" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <Property Name="totalSpentSP" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Character_Table" Relationship="Self.FK_SkillsPurchased_Weapon_Table_ToTable_1" FromRole="SkillsPurchased_Weapon_Table" ToRole="Character_Table" />
+          <NavigationProperty Name="SkillChart_Weapons_Table" Relationship="Self.FK_SkillsPurchased_Weapon_Table_ToTable" FromRole="SkillsPurchased_Weapon_Table" ToRole="SkillChart_Weapons_Table" />
+        </EntityType>
+        <Association Name="FK_SkillsPurchased_Faith_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Faith_Table" Type="Self.SkillsPurchased_Faith_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Faith_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_General_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_General_Table" Type="Self.SkillsPurchased_General_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_General_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Magic_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Magic_Table" Type="Self.SkillsPurchased_Magic_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Magic_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Stealth_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Stealth_Table" Type="Self.SkillsPurchased_Stealth_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Stealth_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Weapon_Table_ToTable_1">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Weapon_Table" Type="Self.SkillsPurchased_Weapon_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Character_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Weapon_Table">
+              <PropertyRef Name="CharacterIdNum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresteigeClass_RaceList_Table_ToTable">
+          <End Role="SkillChart_PrestiegeClass_Race_Table" Type="Self.SkillChart_PrestiegeClass_Race_Table" Multiplicity="1" />
+          <End Role="PresteigeClass_RaceList_Table" Type="Self.PresteigeClass_RaceList_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_PrestiegeClass_Race_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="PresteigeClass_RaceList_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Faith_Table_ToTable">
+          <End Role="SkillChart_Faith_Table" Type="Self.SkillChart_Faith_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Faith_Table" Type="Self.SkillsPurchased_Faith_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_Faith_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Faith_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_General_Table_ToTable">
+          <End Role="SkillChart_General_Table" Type="Self.SkillChart_General_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_General_Table" Type="Self.SkillsPurchased_General_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_General_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_General_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Magic_Table_ToTable">
+          <End Role="SkillChart_Magic_Table" Type="Self.SkillChart_Magic_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Magic_Table" Type="Self.SkillsPurchased_Magic_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_Magic_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Magic_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Stealth_Table_ToTable">
+          <End Role="SkillChart_Stealth_Table" Type="Self.SkillChart_Stealth_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Stealth_Table" Type="Self.SkillsPurchased_Stealth_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_Stealth_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Stealth_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkillsPurchased_Weapon_Table_ToTable">
+          <End Role="SkillChart_Weapons_Table" Type="Self.SkillChart_Weapons_Table" Multiplicity="1" />
+          <End Role="SkillsPurchased_Weapon_Table" Type="Self.SkillsPurchased_Weapon_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkillChart_Weapons_Table">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="SkillsPurchased_Weapon_Table">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Characters_Owned">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="0..1" />
+          <End Role="Player_Information" Type="Self.Player_Information" Multiplicity="*" />
+        </Association>
+        <Association Name="ClassRace_Table">
+          <End Role="Character_Table" Type="Self.Character_Table" Multiplicity="*" />
+          <End Role="PresteigeClass_RaceList_Table" Type="Self.PresteigeClass_RaceList_Table" Multiplicity="0..1" />
+        </Association>
+        <EntityContainer Name="DefaultConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Character_Table" EntityType="Self.Character_Table" />
+          <EntitySet Name="Player_Information" EntityType="Self.Player_Information" />
+          <EntitySet Name="PresteigeClass_RaceList_Table" EntityType="Self.PresteigeClass_RaceList_Table" />
+          <EntitySet Name="SkillChart_Faith_Table" EntityType="Self.SkillChart_Faith_Table" />
+          <EntitySet Name="SkillChart_General_Table" EntityType="Self.SkillChart_General_Table" />
+          <EntitySet Name="SkillChart_Magic_Table" EntityType="Self.SkillChart_Magic_Table" />
+          <EntitySet Name="SkillChart_PrestiegeClass_Race_Table" EntityType="Self.SkillChart_PrestiegeClass_Race_Table" />
+          <EntitySet Name="SkillChart_Stealth_Table" EntityType="Self.SkillChart_Stealth_Table" />
+          <EntitySet Name="SkillChart_Weapons_Table" EntityType="Self.SkillChart_Weapons_Table" />
+          <EntitySet Name="SkillsPurchased_Faith_Table" EntityType="Self.SkillsPurchased_Faith_Table" />
+          <EntitySet Name="SkillsPurchased_General_Table" EntityType="Self.SkillsPurchased_General_Table" />
+          <EntitySet Name="SkillsPurchased_Magic_Table" EntityType="Self.SkillsPurchased_Magic_Table" />
+          <EntitySet Name="SkillsPurchased_Stealth_Table" EntityType="Self.SkillsPurchased_Stealth_Table" />
+          <EntitySet Name="SkillsPurchased_Weapon_Table" EntityType="Self.SkillsPurchased_Weapon_Table" />
+          <AssociationSet Name="FK_SkillsPurchased_Faith_Table_ToTable_1" Association="Self.FK_SkillsPurchased_Faith_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_Faith_Table" EntitySet="SkillsPurchased_Faith_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_General_Table_ToTable_1" Association="Self.FK_SkillsPurchased_General_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_General_Table" EntitySet="SkillsPurchased_General_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Magic_Table_ToTable_1" Association="Self.FK_SkillsPurchased_Magic_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_Magic_Table" EntitySet="SkillsPurchased_Magic_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Stealth_Table_ToTable_1" Association="Self.FK_SkillsPurchased_Stealth_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_Stealth_Table" EntitySet="SkillsPurchased_Stealth_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Weapon_Table_ToTable_1" Association="Self.FK_SkillsPurchased_Weapon_Table_ToTable_1">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="SkillsPurchased_Weapon_Table" EntitySet="SkillsPurchased_Weapon_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresteigeClass_RaceList_Table_ToTable" Association="Self.FK_PresteigeClass_RaceList_Table_ToTable">
+            <End Role="SkillChart_PrestiegeClass_Race_Table" EntitySet="SkillChart_PrestiegeClass_Race_Table" />
+            <End Role="PresteigeClass_RaceList_Table" EntitySet="PresteigeClass_RaceList_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Faith_Table_ToTable" Association="Self.FK_SkillsPurchased_Faith_Table_ToTable">
+            <End Role="SkillChart_Faith_Table" EntitySet="SkillChart_Faith_Table" />
+            <End Role="SkillsPurchased_Faith_Table" EntitySet="SkillsPurchased_Faith_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_General_Table_ToTable" Association="Self.FK_SkillsPurchased_General_Table_ToTable">
+            <End Role="SkillChart_General_Table" EntitySet="SkillChart_General_Table" />
+            <End Role="SkillsPurchased_General_Table" EntitySet="SkillsPurchased_General_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Magic_Table_ToTable" Association="Self.FK_SkillsPurchased_Magic_Table_ToTable">
+            <End Role="SkillChart_Magic_Table" EntitySet="SkillChart_Magic_Table" />
+            <End Role="SkillsPurchased_Magic_Table" EntitySet="SkillsPurchased_Magic_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Stealth_Table_ToTable" Association="Self.FK_SkillsPurchased_Stealth_Table_ToTable">
+            <End Role="SkillChart_Stealth_Table" EntitySet="SkillChart_Stealth_Table" />
+            <End Role="SkillsPurchased_Stealth_Table" EntitySet="SkillsPurchased_Stealth_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkillsPurchased_Weapon_Table_ToTable" Association="Self.FK_SkillsPurchased_Weapon_Table_ToTable">
+            <End Role="SkillChart_Weapons_Table" EntitySet="SkillChart_Weapons_Table" />
+            <End Role="SkillsPurchased_Weapon_Table" EntitySet="SkillsPurchased_Weapon_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Characters_Owned" Association="Self.Characters_Owned">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="Player_Information" EntitySet="Player_Information" />
+          </AssociationSet>
+          <AssociationSet Name="ClassRace_Table" Association="Self.ClassRace_Table">
+            <End Role="Character_Table" EntitySet="Character_Table" />
+            <End Role="PresteigeClass_RaceList_Table" EntitySet="PresteigeClass_RaceList_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SRModelStoreContainer" CdmEntityContainer="DefaultConnection">
+          <EntitySetMapping Name="Character_Table">
+            <EntityTypeMapping TypeName="SRModel.Character_Table">
+              <MappingFragment StoreEntitySet="Character_Table">
+                <ScalarProperty Name="CharacterIdNum" ColumnName="CharacterIdNum" />
+                <ScalarProperty Name="CharacterName" ColumnName="CharacterName" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="SPtotal" ColumnName="SPtotal" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Deaths" ColumnName="Deaths" />
+                <ScalarProperty Name="WeaponDots" ColumnName="WeaponDots" />
+                <ScalarProperty Name="StealthDots" ColumnName="StealthDots" />
+                <ScalarProperty Name="MagicDots" ColumnName="MagicDots" />
+                <ScalarProperty Name="FaithDots" ColumnName="FaithDots" />
+                <ScalarProperty Name="GeneralDots" ColumnName="GeneralDots" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Player_Information">
+            <EntityTypeMapping TypeName="SRModel.Player_Information">
+              <MappingFragment StoreEntitySet="Player_Information">
+                <ScalarProperty Name="PlayerIdNum" ColumnName="PlayerIdNum" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="EmergencyContact" ColumnName="EmergencyContact" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FloatingXP" ColumnName="FloatingXP" />
+                <ScalarProperty Name="GrabBags" ColumnName="GrabBags" />
+                <ScalarProperty Name="Waver" ColumnName="Waver" />
+                <ScalarProperty Name="CanPlay" ColumnName="CanPlay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PresteigeClass_RaceList_Table">
+            <EntityTypeMapping TypeName="SRModel.PresteigeClass_RaceList_Table">
+              <MappingFragment StoreEntitySet="PresteigeClass_RaceList_Table">
+                <ScalarProperty Name="IdList" ColumnName="IdList" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillChart_Faith_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillChart_Faith_Table">
+              <MappingFragment StoreEntitySet="SkillChart_Faith_Table">
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillCost" ColumnName="SkillCost" />
+                <ScalarProperty Name="MultiPurchase" ColumnName="MultiPurchase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillChart_General_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillChart_General_Table">
+              <MappingFragment StoreEntitySet="SkillChart_General_Table">
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillCost" ColumnName="SkillCost" />
+                <ScalarProperty Name="MultiPurchase" ColumnName="MultiPurchase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillChart_Magic_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillChart_Magic_Table">
+              <MappingFragment StoreEntitySet="SkillChart_Magic_Table">
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillCost" ColumnName="SkillCost" />
+                <ScalarProperty Name="MultiPurchase" ColumnName="MultiPurchase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillChart_PrestiegeClass_Race_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillChart_PrestiegeClass_Race_Table">
+              <MappingFragment StoreEntitySet="SkillChart_PrestiegeClass_Race_Table">
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillCost" ColumnName="SkillCost" />
+                <ScalarProperty Name="MultiPurchase" ColumnName="MultiPurchase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillChart_Stealth_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillChart_Stealth_Table">
+              <MappingFragment StoreEntitySet="SkillChart_Stealth_Table">
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillCost" ColumnName="SkillCost" />
+                <ScalarProperty Name="MultiPurchase" ColumnName="MultiPurchase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillChart_Weapons_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillChart_Weapons_Table">
+              <MappingFragment StoreEntitySet="SkillChart_Weapons_Table">
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillCost" ColumnName="SkillCost" />
+                <ScalarProperty Name="MultiPurchase" ColumnName="MultiPurchase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillsPurchased_Faith_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillsPurchased_Faith_Table">
+              <MappingFragment StoreEntitySet="SkillsPurchased_Faith_Table">
+                <ScalarProperty Name="CharacterIdNum" ColumnName="CharacterIdNum" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="totalSpentSP" ColumnName="totalSpentSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillsPurchased_General_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillsPurchased_General_Table">
+              <MappingFragment StoreEntitySet="SkillsPurchased_General_Table">
+                <ScalarProperty Name="CharacterIdNum" ColumnName="CharacterIdNum" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="TotalSpentSP" ColumnName="TotalSpentSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillsPurchased_Magic_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillsPurchased_Magic_Table">
+              <MappingFragment StoreEntitySet="SkillsPurchased_Magic_Table">
+                <ScalarProperty Name="CharacterIdNum" ColumnName="CharacterIdNum" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="TotalSPentSP" ColumnName="TotalSPentSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillsPurchased_Stealth_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillsPurchased_Stealth_Table">
+              <MappingFragment StoreEntitySet="SkillsPurchased_Stealth_Table">
+                <ScalarProperty Name="CharacterIdNum" ColumnName="CharacterIdNum" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="TotalSpentSP" ColumnName="TotalSpentSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillsPurchased_Weapon_Table">
+            <EntityTypeMapping TypeName="SRModel.SkillsPurchased_Weapon_Table">
+              <MappingFragment StoreEntitySet="SkillsPurchased_Weapon_Table">
+                <ScalarProperty Name="CharacterIdNum" ColumnName="CharacterIdNum" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="totalSpentSP" ColumnName="totalSpentSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Characters_Owned" TypeName="SRModel.Characters_Owned" StoreEntitySet="Characters_Owned">
+            <EndProperty Name="Character_Table">
+              <ScalarProperty Name="CharacterIdNum" ColumnName="CharacterIdNum" />
+            </EndProperty>
+            <EndProperty Name="Player_Information">
+              <ScalarProperty Name="PlayerIdNum" ColumnName="PlayerIdNum" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ClassRace_Table" TypeName="SRModel.ClassRace_Table" StoreEntitySet="ClassRace_Table">
+            <EndProperty Name="Character_Table">
+              <ScalarProperty Name="CharacterIdNum" ColumnName="CharacterIdNum" />
+            </EndProperty>
+            <EndProperty Name="PresteigeClass_RaceList_Table">
+              <ScalarProperty Name="IdList" ColumnName="IdList" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

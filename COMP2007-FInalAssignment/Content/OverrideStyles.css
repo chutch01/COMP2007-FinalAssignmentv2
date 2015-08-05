@@ -1,0 +1,212 @@
+﻿body {
+    background-color: #202020;
+}
+
+.CenterLogin {
+    display: block;
+    align-content: center;
+    width: 50%;
+}
+
+.navbar-Custom {
+    align-content: center;
+    border-bottom-color: white;
+    border-bottom: solid, 1px;
+    width: 100%;
+    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#000000), to(#000000));
+    background-image: -webkit-linear-gradient(top, #000000 0%, #000000 100%);
+    background-image: -moz-linear-gradient(top, ##000000 0%, #000000 100%);
+    background-image: linear-gradient(to bottom, #000000 0%, #000000 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.center-text {
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.btn-Custom {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-image: -webkit-gradient(linear, left 0%, left 50%, from(#428bca), to(#2d6ca2));
+    background-image: -webkit-linear-gradient(top, #808080 0%, #808080 100%);
+    background-image: -moz-linear-gradient(top, #bababa 0%, #808080 100%);
+    background-image: linear-gradient(to bottom, #bababa 0%, #808080 100%);
+    background-repeat: repeat-x;
+    border-color: #2b669a;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff2d6ca2', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+    .btn-Custom:hover,
+    .btn-Custom:focus {
+        background-color: #ffd800;
+        background-position: 0 -15px;
+    }
+
+    .btn-Custom:active,
+    .btn-Custom.active {
+        background-color: #ff0000;
+        border-color: #2b669a;
+    }
+
+
+
+/* Toggles */
+
+input-Custom-Magic[type=checkbox] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+label-Custom-Magic {
+    -webkit-appearance: push-button;
+    -moz-appearance: button;
+    display: inline-block;
+    margin: 60px 0 10px 0;
+    cursor: pointer;
+}
+
+/* Default State */
+
+
+/* Toggled State */
+input-Custom[type=checkbox]:checked ~ Magic-Div {
+    background: red;
+}
+
+
+.btn-generalSkills:active
+{
+}
+
+.btn-generalSkills {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#428bca), to(#2d6ca2));
+    background-image: -webkit-linear-gradient(top, #428bca 0%, #2d6ca2 100%);
+    background-image: -moz-linear-gradient(top, #428bca 0%, #2d6ca2 100%);
+    background-image: linear-gradient(to bottom, #428bca 0%, #2d6ca2 100%);
+    background-repeat: repeat-x;
+    border-color: #2b669a;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff2d6ca2', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+/** This sections controls the display of the classes to tell the player if they can purchase that skill in regards to dots.
+     */
+
+.tierOneGeneralSkills {
+
+}
+
+
+.tierTwoGeneralSkills {
+
+}
+
+
+.tierThreeGeneralSkills {
+
+}
+
+.tierOneWeaponSkills {
+
+}
+
+.tierTwoWeaponSkills {
+
+}
+
+.tierThreeWeaponSkills {
+
+}
+
+.tierOneStealthSkills {
+
+}
+
+.tierTwoStealthSkills {
+
+}
+
+.tierThreeStealthSkills {
+
+}
+
+.tierOneMagicSkills {
+
+}
+
+.tiertwoMagicSkills {
+
+}
+
+.tierThreeMagicSkills {
+
+}
+
+.tierOneFaithSkills {
+
+}
+
+.tierTwoFaithSkills {
+
+}
+
+.tierThreeFaithSkills > .panel-heading{
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#fcf8e3), to(#faf2cc));
+  background-image: -webkit-linear-gradient(top, #fcf8e3 0%, #faf2cc 100%);
+  background-image: -moz-linear-gradient(top, #fcf8e3 0%, #faf2cc 100%);
+  background-image: linear-gradient(to bottom, #fcf8e3 0%, #faf2cc 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcf8e3', endColorstr='#fffaf2cc', GradientType=0);
+
+}
+
+
+.panel-danger > .panel-heading {
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#f2dede), to(#ebcccc));
+  background-image: -webkit-linear-gradient(top, #f2dede 0%, #ebcccc 100%);
+  background-image: -moz-linear-gradient(top, #f2dede 0%, #ebcccc 100%);
+  background-image: linear-gradient(to bottom, #f2dede 0%, #ebcccc 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffebcccc', GradientType=0);
+}
+
+.display-hidden {
+    display:none;
+}
+
+
+
+
+
+
+
+
+C:\Users\gcstudent\Desktop\COMP2007-FinalAssignment-master\COMP2007-FinalAssignment-master\COMP2007-FInalAssignment\Content\OverrideStyles.css

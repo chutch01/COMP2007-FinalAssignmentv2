@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b1d0b76b65b4617b3a59fef8b64b23e" Name="Diagram1">
+        <EntityTypeShape EntityType="SRModel.Character_Table" Width="1.5" PointX="6.375" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.Player_Information" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.PresteigeClass_RaceList_Table" Width="1.5" PointX="3.125" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillChart_Faith_Table" Width="1.5" PointX="0.625" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillChart_General_Table" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillChart_Magic_Table" Width="1.5" PointX="2.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillChart_PrestiegeClass_Race_Table" Width="1.5" PointX="0.625" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillChart_Stealth_Table" Width="1.5" PointX="6.375" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillChart_Weapons_Table" Width="1.5" PointX="4.375" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillsPurchased_Faith_Table" Width="1.5" PointX="0.625" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillsPurchased_General_Table" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillsPurchased_Magic_Table" Width="1.5" PointX="2.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillsPurchased_Stealth_Table" Width="1.5" PointX="6.375" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRModel.SkillsPurchased_Weapon_Table" Width="1.5" PointX="4.375" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_Faith_Table_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_General_Table_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_Magic_Table_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_Stealth_Table_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_Weapon_Table_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_PresteigeClass_RaceList_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_Faith_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_General_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_Magic_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_Stealth_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.FK_SkillsPurchased_Weapon_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.Characters_Owned" ManuallyRouted="false" />
+        <AssociationConnector Association="SRModel.ClassRace_Table" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
